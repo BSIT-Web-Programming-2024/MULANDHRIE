@@ -1,255 +1,88 @@
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html lang="en">
-<head>
-    <link rel="stylesheet" href="styledhidrei.css">
-    <title>PUMPKIN</title>
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
- body, html {
-      margin: 0;
-      padding: 0;
-      overflow: hidden;
-      height: 100%;
-      background-color: #0e0e0e;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    canvas {
-      display: block;
-      position: fixed;
-      top: 0;
-      left: 0;
-    }
-    /* Optional text styling */
-    .content {
-      color: #ffffff;
-      z-index: 1;
-      text-align: center;
-      font-family: Arial, sans-serif;
-    }
-    .content h1 {
-      font-size: 3rem;
-      color: #00f5ff;
-      text-shadow: 0 0 5px #00f5ff, 0 0 10px #00f5ff;
-    }
-  </style>
-</head>
-<body>
+     <head>
+         <meta charset="UTF-8">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+          <title>Choco Mucho</title> 
+          <link rel="stylesheet" href="port.css"> 
+        </head> 
+        <body>
+             <header> 
+                <nav>
+                     <ul>
+                         <li><a href="#home">Home</a></li>
+                          <li><a href="#images">Images</a>
+                        </li>
+                         <li><a href="#contact">Contact</a></li> 
+                        <li><a href="#songs">Songs</a></li> 
+                    </ul> 
+                    </nav>
+                    
+                    </header>
+                    <style>
+                  
+                        </style>
+                     <section id="home">
+                        <div class="icon-with-border">
 
-  <canvas id="backgroundCanvas"></canvas>
+                            <img src="myselfagain.jpeg  " alt="Animated Icon">
+                        </div>
+                         <h2>About Me</h2>
+                          <p>Hi, my name is [DHIDREI GALLOS], and I am currently pursuing ["a degree in Bachelor of Science in Information and Technology " or "web development training"]. I have a strong passion for technology and enjoy exploring how code can solve real-world problems. My primary focus is on ["animation development," "mobile app development," "data science," etc.], and I’m proficient in [ "JavaScript, Python, and HTML/CSS"].
 
-  <div class="content">
-    <h1>Welcome to My Futuristic Portfolio</h1>
-    <p>Explore the future of web design.</p>
-  </div>
+                            I’m eager to keep learning, collaborating on projects, and building innovative solutions while honing my skills in software development.</p>
+                           
+                        </section>
+                         <section id="images">
+                             <div class="images"> 
+                                <h3>My Photos</h3>
+                                <img src="sara.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="myself.jpg" alt="Example Image" class="image-with-border">
+                                <img src="5 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="1 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="2 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="3 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="4 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="6 photo.jpeg" alt="Example Image" class="image-with-border">
+                                <img src="7 photo.jpg" alt="Example Image" class="image-with-border">
+                            
+                                </div>
+                             </section> 
+                             <body>       
+                             <section>
+                            <section id="songs">
+                                <h2>Songs</h2> 
+                                    <audio controls>
+                                        <source src="Give Me A Sign.mp3" type="audio/mpeg">
+                                    </audio>
 
-  <script>
-    const canvas = document.getElementById("backgroundCanvas");
-    const ctx = canvas.getContext("2d");
+                            <section id="songs">         
+                                    <audio controls>
+                                        <source src="Dionela - Episode 5_ Musika (Official Music Video).mp3" type="audio/mpeg">
+                                    </audio>
 
-    // Set canvas to full window size
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+                            <section id="songs">        
+                                    <audio controls>
+                                        <source src="STUPID IN LOVE Slowed Down.mp3" type="audio/mpeg">
+                                    </audio>
+                                </body>     
+                             </section> 
+                            </section> 
+                            <section id="contact">
+                                    <h2>Contact Me</h2> <form id="contactForm">
+                                        <label for="name">Name:</label> 
+                                        <input type="text" id="name" name="name" required> 
+                                        <label for="email">Email:</label>
+                                         <input type="email" id="email" name="email" required>
+                                          <button type="submit">Submit</button>
+                                        </form>
+                                        </section>            
+                                        </head>
+                                        
+                                        </html>
+                                        
+                                         <script src="port.js">
 
-    // Handle resize
-    window.addEventListener("resize", () => {
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-      initParticles();
-    });
-
-    // Particle properties
-    const particlesArray = [];
-    const numParticles = 100;
-    const maxDistance = 120;
-
-    class Particle {
-      constructor(x, y, directionX, directionY, size, color) {
-        this.x = x;
-        this.y = y;
-        this.directionX = directionX;
-        this.directionY = directionY;
-        this.size = size;
-        this.color = color;
-      }
-
-      // Draw particle
-      draw() {
-        ctx.beginPath();
-        ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2, false);
-        ctx.fillStyle = this.color;
-        ctx.fill();
-      }
-
-      // Update particle position
-      update() {
-        // Reverse direction when edge is hit
-        if (this.x + this.size > canvas.width || this.x - this.size < 0) {
-          this.directionX = -this.directionX;
-        }
-        if (this.y + this.size > canvas.height || this.y - this.size < 0) {
-          this.directionY = -this.directionY;
-        }
-
-        // Move particle
-        this.x += this.directionX;
-        this.y += this.directionY;
-
-        // Draw updated particle
-        this.draw();
-      }
-    }
-
-    // Initialize particles
-    function initParticles() {
-      particlesArray.length = 0; // Clear existing particles
-      for (let i = 0; i < numParticles; i++) {
-        const size = Math.random() * 3 + 1;
-        const x = Math.random() * (canvas.width - size * 2) + size;
-        const y = Math.random() * (canvas.height - size * 2) + size;
-        const directionX = (Math.random() - 0.5) * 1.5;
-        const directionY = (Math.random() - 0.5) * 1.5;
-        const color = "#00f5ff";
-        particlesArray.push(new Particle(x, y, directionX, directionY, size, color));
-      }
-    }
-
-    // Animation loop
-    function animateParticles() {
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      // Update and draw particles
-      for (let i = 0; i < particlesArray.length; i++) {
-        particlesArray[i].update();
-      }
-
-      connectParticles();
-      requestAnimationFrame(animateParticles);
-    }
-
-    // Connect particles within a certain distance
-    function connectParticles() {
-      for (let a = 0; a < particlesArray.length; a++) {
-        for (let b = a + 1; b < particlesArray.length; b++) {
-          const distance = Math.hypot(
-            particlesArray[a].x - particlesArray[b].x,
-            particlesArray[a].y - particlesArray[b].y
-          );
-
-          if (distance < maxDistance) {
-            ctx.strokeStyle = "rgba(0, 245, 255, " + (1 - distance / maxDistance) + ")";
-            ctx.lineWidth = 0.5;
-            ctx.beginPath();
-            ctx.moveTo(particlesArray[a].x, particlesArray[a].y);
-            ctx.lineTo(particlesArray[b].x, particlesArray[b].y);
-            ctx.stroke();
-          }
-        }
-      }
-    }
-
-    // Start animation
-    initParticles();
-    animateParticles();
-  </script>
-</body>
-
-    
-</head>
-<body>
-   <header class="header">
-    <a href="#" class="logo"><span>DHID</span>rei</a>
-
-    <nav class="navbar">
-        <a href"#" class="active">PORTFOLIO</a>
-        <a href"#">About</a>
-        <a href"#">Skills</a>
-        <a href"#">Contact</a>
-    </nav>
-   
-    <a href="#" class="contact">HI</a>
-
-   </header>
-
-   <section class="home">
-    <div class="home-content">
-    <h3>HI</h3>
-
-    <h1>I'm<span>Dhidrei<br></span>Wanna know about me?</h1>
-
-    <p> A third year college student, and currently studying in Data Center College of the Philippines, were currently conducting on how to make our own website by studying through multiple research on how to learn the codes of Web Development.</p>
-        
-<div class="img-box"></div>
-<img src="image 6.jpg" alt="">
-   </section>
-
-<section class="about">
-
-    <div class="about-img">
-        <img src="image 8.jpg" alt="">
-    </div>
-
-    <div class="about-content">
-        <h2 class="heading">My<span>Skills</span></h2>
-        <h3>Student<span>Developer</span></h3>
-        <p>Web Developer, Animator, Programmer</p>
-    </div>
-</section>
-
-<section class="contact-form">
-    <h2 class="contact-me">Contact<span>Me</span></h2>
-
-    <form action="#">Just Type Idiot
-
-        <div class="input-box">
-            <input type="text" placeholder="Full Name">
-            <input type="email"
-             placeholder="Email">
-        </div>
-
-        <div class="input-box">
-            <input type="Number" placeholder="Phone Number">
-            <input type="text"
-             placeholder="Subject">
-        </div>
-
-        <textarea name="" id="" cols="30"
-        rows="10" placeholder="Your Message"></textarea>
-        <input type="submit" value="Send Message"
-        class="btn-1">
-    </form>
-</section>
-
-<footer class="footer">
-
-    <div class="social">
-        <a  href="#"><i class='bx bxl-facebook-circle'></i></a>
-        <a  href="#"><i class='bx bxl-linkedin-square'></i></a>
-        <a  href="#"><i class='bx bxl-instagram-alt' ></i></a>
-        <a  href="#"><i class='bx bxl-tiktok'></i></a>
-    </div>
-
-<ul class="list">
-    <li>
-        <a href="#">FAQ</a>
-    </li>
-    <li>
-        <a href="#">Services</a>
-    </li>
-    <li>
-        <a href="#">About Me</a>
-    </li>
-    <li>
-        <a href="#">Contact</a>
-    </li>
-    <li>
-        <a href="#">Privacy Policy</a>
-    </li>
-</ul>
-
-<p class="copyright"> 2024 Dhidrei ! Alrights Reserved</p>
-
-</footer>
-
-</body>
-</html>
+                                         </script> 
+                                         </body>
+                                         </html>
