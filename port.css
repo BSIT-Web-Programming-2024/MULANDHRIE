@@ -40,10 +40,16 @@ font-family: Arial, sans-serif;
     100% {
         border-color: #3357ff;
         box-shadow: 0 0 10px #3357ff;
-    }
-    
-
+    }  
 }
+.image-container img {
+        width: 300px; /* Adjust the size as needed */
+        height: auto; /* Maintain aspect ratio */
+        border: 5px solid #333; /* Solid border with a color */
+        border-radius: 10px; /* Optional rounded corners */
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional box shadow */
+}
+
 body {
     background-image: url('bmw.jpg');
     background-repeat: no-repeat;
