@@ -1,4 +1,23 @@
 body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #88f555;
+}
+
+.content {
+    max-width: 600px;
+    margin: auto;
+}
+
+.bordered-paragraph {
+    border: 2px solid #333; /* Border thickness, style, and color */
+    padding: 15px; /* Padding inside the border */
+    background: #fff; /* Background color */
+    border-radius: 10px; /* Optional rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional shadow for a nice effect */
+}
+
+body {
 font-family: Arial, sans-serif;
  line-height: 1.6; 
  margin: 0; 
